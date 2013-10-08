@@ -1,9 +1,45 @@
 {
-  "name": "australis-weather-widget",
-  "fullName": "australis-weather-widget",
-  "id": "jid1-I7AVLOq91XwsJA",
-  "description": "A weather widget for displaying local or remote weather.",
+  "name": "weather",
+  "fullName": "weather",
+  "id": "jid1-u8H8ugCRGtPryA",
+  "description": "a basic add-on",
   "author": "",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "0.1",
+
+  "preferences": [{
+        "description": "Current Location WOEID",
+        "name": "cityOneWOEID",
+        "type": "string",
+        "value": "",
+        "title": "Current City"
+    },
+    {
+        "description": "2nd City Pref. WOEID",
+        "name": "cityTwoWOEID",
+        "type": "string",
+        "value": "",
+        "title": "2nd City Pref."
+    },
+    {
+        "description": "3rd City Pref. WOEID",
+        "name": "cityThreeWOEID",
+        "type": "string",
+        "value": "",
+        "title": "3rd City Pref."
+    },
+    {
+        "description": "4th City Pref. WOEID",
+        "name": "cityFourWOEID",
+        "type": "string",
+        "value": "",
+        "title": "4th City Pref."
+    },
+    {
+        "description": "5th City Pref. WOEID",
+        "name": "cityFiveWOEID",
+        "type": "string",
+        "value": "",
+        "title": "5th City Pref."
+    }]
 }
