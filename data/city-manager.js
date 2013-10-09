@@ -213,8 +213,8 @@ var cityManager = (function () {
     /***************************************
     * Return image name for given code
     ***************************************/
-    function returnImage(conditionCode) {
     function returnImage(conditionCode) 
+    {
       var imageLink = '';
 
       if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
