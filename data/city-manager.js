@@ -27,14 +27,10 @@ var cityManager = (function () {
     /***************************************
     * create new city and add to list
     ***************************************/
-    pub.onCreateCity = function(text) {
-
-      //check if not already 5 cities, if more ==> error to console
-      if(cityList.length > 4) {
-
-      }
-      else  {
-
+    pub.onCreateCity = function(text) 
+    {
+      if(cityList.length < 5) 
+      {
         //create and add it to the list
         cityList[cityList.length] = new cityElement();
         cityList[cityList.length-1].rank = cityList.length-1;
@@ -69,7 +65,8 @@ var cityManager = (function () {
     /***************************************
     * Call Update Weather on List, Display
     ***************************************/
-    pub.onUpdateWeather = function() {		
+    pub.onUpdateWeather = function() 
+    {		
       for(i=0;i<cityList.length;i++)
       {
         cityList[i].updateWeather();
@@ -79,11 +76,13 @@ var cityManager = (function () {
     /***************************************
     * Pass Weather to Appropriate City
     ***************************************/
-    pub.onForecastToCity = function (toReceive) {
-
-	  var wOEID = toReceive.woeid;
-	
-	  var xml = toReceive.text,
+    pub.onForecastToCity = function (onReceive) 
+    {
+      // get the woeid from the parameter
+	  var wOEID = onReceive.woeid;
+	  
+	  // get xml and tags from xml
+	  var xml = onReceive.text,
 	  xmlDoc = $.parseXML( xml ),
 	  $xml = $( xmlDoc ),
 	  $location = $xml.find( "yweather\\:location" );
@@ -91,6 +90,7 @@ var cityManager = (function () {
 	  $atmosphere = $xml.find( "yweather\\:atmosphere" );
 	  $condition = $xml.find( "yweather\\:condition" );
 	
+	  // get specific attributes from xml
 	  var city = $location.attr('city');
 	  var country = $location.attr('country');
 	  var region = $location.attr('region');
@@ -100,6 +100,8 @@ var cityManager = (function () {
 	  var visibility = $atmosphere.attr('visibility');
 	  var conditionCode = $condition.attr('code');
 	
+	  // for the city in Citylist with the given WOEID
+	  // set its attributes to that which has been returned
 	  for(i=0;i<cityList.length;i++)
       {
         if(cityList[i].woeid == wOEID)
@@ -114,14 +116,17 @@ var cityManager = (function () {
         }
       }
 	
+	  // refresh the display
       outputCityElements();
     }
 
     /***************************************
     * Call on Preference Change
     ***************************************/
-    pub.onPrefChange = function (object) {
-
+    pub.onPrefChange = function (object) 
+    {
+      // if city element does not already exists for corresponding pref
+      // create one, else update existing
       if(cityList.length >= object.rank+1)
       {
         for(i=0;i<cityList.length;i++)
@@ -139,16 +144,19 @@ var cityManager = (function () {
         pub.onCreateCity(object.woeid);
       }
 
+      // refresh the display
       outputCityElements();
     }; 
 
     /***************************************
     * Promote a city to current location
     ***************************************/
-    pub.promoteToCurrentCity = function(woeid) { //promote the city, demote others
-      
+    pub.promoteToCurrentCity = function(woeid) 
+    { 
       var temp;
 
+      // switch the positions of the current city 
+      // and corresponding rank attributes
       for(i=0;i<cityList.length;i++)
       {
         if(cityList[i].woeid == woeid)
@@ -164,17 +172,19 @@ var cityManager = (function () {
         }
       }
 
+      //
       outputCityElements();
     };  
 
     /******************************************
     * Remove a city from the list, reorganize
     ******************************************/
-    pub.removeCity = function(woeid) {
-
+    pub.removeCity = function(woeid) 
+    {
       var rank = 0;
       var index = 0;
 
+      // find the rank and index of the city to be deleted
       for(i=0;i<cityList.length;i++)
       {
         if(cityList[i].woeid == woeid)
@@ -184,8 +194,11 @@ var cityManager = (function () {
         }
       }
 
+      // remove the city element needed to be deleted
       cityList.splice(index,1);
 
+      // fix any problems with ranks, for instance if there is a rank 4 but rank 3
+      // is deleted rank 4 should become rank 3
       for(i=0;i<cityList.length;i++)
       {
         if(cityList[i].rank > rank)
@@ -201,7 +214,7 @@ var cityManager = (function () {
     * Return image name for given code
     ***************************************/
     function returnImage(conditionCode) {
-
+    function returnImage(conditionCode) 
       var imageLink = '';
 
       if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
@@ -259,23 +272,29 @@ var cityManager = (function () {
     /******************************************
     * Clears all city elements from container
     ******************************************/
-    function clearCityContainer() {	//clear the city container of all elements
+    function clearCityContainer() 
+    {	
+      //clear the city container of all elements
       cityContainer.innerHTML='';
     };
 
     /******************************************
     * Call output on all elements => container
     ******************************************/
-    function outputCityElements() {	//get outputCode on all cities, add to container
+    function outputCityElements() 
+    {	
       clearCityContainer();
 
-      //remove entries in prefs that are no longer used
+      // remove entries in prefs that are no longer used
+      // and update teh special prefs to reflect the current 
       for(i=cityList.length;i<5;i++)
       {
         var s = {rank: i, woeid: "" };
         self.port.emit("write-to-pref", s);
       }
 
+      // output all city elements with a flag to indicate whether in an 
+      // edit phase or not
       for(i=0;i<cityList.length;i++)
       {
         cityList[i].addPrefEntry();

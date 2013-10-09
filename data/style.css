@@ -1,0 +1,102 @@
+  body {
+	margin: 0px;
+  }
+
+  ul  {
+	list-style-type: none;
+	font-size: 10px;
+  }
+
+  li  {
+    list-style-type: none;
+	font-size: 10px;
+  }
+
+  .cityelement  {
+	margin: auto;
+	width: 97%;
+	margin-bottom: 5px;
+	border-top: 2px solid lightgray;
+  } 
+
+  .primarycityelement  {
+    border-radius: 5px;
+	border: 1px solid white; 
+	background-color: #C6E2FF;
+	box-shadow: 0px 0px 2px #111161;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 97%;
+  } 
+
+  .icon  {
+    width: 75px;
+    height: 30px;
+    border: 1px solid gray;
+    background-size: cover;
+    color: #FF5800;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  #toggle-customize-button {
+    width: 100%;
+    border: none;
+    background-color: #dfdfdf;
+    border-top: 1px solid #bfbfbf;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    -moz-user-select: none;
+  }
+
+  button  {
+    background: none;
+    border: none;
+  }
+
+  .link:hover, #customize-text:hover {
+    /*color: #FF5800;*/
+    cursor: pointer;
+  }
+
+  .invisible  {
+    text-align: right;
+  }
+
+  .iconcolumn  {
+    text-align: left; 
+    width: 100px;
+  }
+
+  .namecolumn  {
+    text-align: left; 
+    width: 100px;
+    word-wrap: break-word;
+  }
+
+  .detailcolumn  {
+    text-align: right; 
+    width: 100px;
+  }
+
+  .buttonscolumn  {
+    max-width: 10px;  
+    display: none;
+  }
+
+  #holder  {
+    min-height: 100%;
+    position:relative;
+  }
+
+  #addcity {
+    padding-bottom: 0px;
+  }
+
+  html, body{
+    height: 100%;
+    -moz-user-select: none;
+  }
