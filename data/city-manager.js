@@ -108,7 +108,8 @@ var cityManager = (function () {
         if(cityList[i].woeid == wOEID)
         {
           if(region != ""){ cityList[i].name = city+", "+region+", "+country;}
-          else {cityList[i].name = city+", "+country;}
+          else if(country != "") {cityList[i].name = city+", "+country;}
+          else {cityList[i].name = city;}
           cityList[i].temp = temp;
           cityList[i].humidity = humidity;
           cityList[i].vis = visibility;
@@ -154,7 +155,7 @@ var cityManager = (function () {
     ***************************************/
     pub.onPromptPrefWrite = function () 
     {
-    //  for(i=0;i<5;i++)
+    //for(i=0;i<5;i++)
     //  {
     //    var s = {rank: i, woeid: '' };
     //    self.port.emit("write-to-pref", s);
