@@ -16,10 +16,12 @@ var cityManager = (function () {
     /***************************************
     * Send out for WOEID for addition
     ***************************************/
-    pub.onAddCity = function(event) {
-
-      //check if valid, if not don't add ==> error to console
-      if(cityInput.value != "")  {
+    pub.onAddCity = function(event) 
+    {
+      // check if blank to handle at least some validation before we 
+      // send a request, can't so more because could be # or latin characters
+      if(cityInput.value != "") 
+      {
         self.port.emit("retrieve-woeid", cityInput.value);
       }
     };
@@ -44,7 +46,6 @@ var cityManager = (function () {
         pub.onUpdateWeather();
       }
     };
-
 
     /***************************************
     * Toggle Edit View
@@ -123,7 +124,7 @@ var cityManager = (function () {
     /***************************************
     * Call on Preference Change
     ***************************************/
-    pub.onPrefChange = function (object) 
+    pub.onPrefLoad = function (object) 
     {
       // if city element does not already exists for corresponding pref
       // create one, else update existing
@@ -149,6 +150,23 @@ var cityManager = (function () {
     }; 
 
     /***************************************
+    * Call on Preference Change
+    ***************************************/
+    pub.onPromptPrefWrite = function () 
+    {
+    //  for(i=0;i<5;i++)
+    //  {
+    //    var s = {rank: i, woeid: '' };
+    //    self.port.emit("write-to-pref", s);
+    //  }
+    //
+    //  for(i=cityList.length;i<5;i++)
+    //  {
+    //    i.addPrefEntry();
+    //  }
+    }; //can use as of now since the message does not get passed in time to complete a write
+
+    /***************************************
     * Promote a city to current location
     ***************************************/
     pub.promoteToCurrentCity = function(woeid) 
@@ -172,7 +190,6 @@ var cityManager = (function () {
         }
       }
 
-      //
       outputCityElements();
     };  
 
@@ -285,11 +302,9 @@ var cityManager = (function () {
     {	
       clearCityContainer();
 
-      // remove entries in prefs that are no longer used
-      // and update teh special prefs to reflect the current 
-      for(i=cityList.length;i<5;i++)
+      for(i=0;i<5;i++)
       {
-        var s = {rank: i, woeid: "" };
+        var s = {rank: i, woeid: '' };
         self.port.emit("write-to-pref", s);
       }
 
@@ -297,7 +312,7 @@ var cityManager = (function () {
       // edit phase or not
       for(i=0;i<cityList.length;i++)
       {
-        cityList[i].addPrefEntry();
+		cityList[i].addPrefEntry();
 
         if(pub.customizeButton.innerHTML == "Exit Customization") 
         {
@@ -326,7 +341,8 @@ cityManager.addCityButton.addEventListener('click', cityManager.onAddCity);
 self.port.on("return-woeid", cityManager.onCreateCity);
 self.port.on("return-forecast", cityManager.onForecastToCity);
 self.port.on("update-weather", cityManager.onUpdateWeather);
-self.port.on("pref-change", cityManager.onPrefChange);
+self.port.on("pref-load", cityManager.onPrefLoad);
+self.port.on("prompt-pref-write", cityManager.onPromptPrefWrite);
 
 
 

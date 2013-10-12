@@ -58,7 +58,7 @@
   }
 
   .link:hover, #customize-text:hover {
-    /*color: #FF5800;*/
+    color: #FF5800;
     cursor: pointer;
   }
 

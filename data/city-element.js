@@ -15,35 +15,40 @@ function cityElement() {
   /***************************************
   * redirect the user to the appr. yahoo page 
   ***************************************/
-  pub.onClickName = function() {	//redirect the user based on the WOEID
+  pub.onClickName = function() 
+  {
     window.open('http://weather.yahoo.com/_/_/_-'+pub.woeid+'/','_newtab');
   };
 
   /***************************************
   * Delete the city
   ***************************************/	
-  pub.onClickX = function() {		//need to call cityManager to delete self
+  pub.onClickX = function() 
+  {		
     cityManager.removeCity(pub.woeid); 
   };
 
   /***************************************
   * Make the city the current location
   ***************************************/		
-  pub.onClickStar = function() {	//need to call cityManager to promote self
+  pub.onClickStar = function() 
+  {
     cityManager.promoteToCurrentCity(pub.woeid); 
   };
 
   /***************************************
   * Update the city weather info
   ***************************************/
-  pub.updateWeather = function() {
+  pub.updateWeather = function() 
+  {
     self.port.emit("retrieve-forecast", pub.woeid); 
   };
 
   /***************************************
   * Add Simple Pref Entry
   ***************************************/
-  pub.addPrefEntry = function() {
+  pub.addPrefEntry = function() 
+  {
     var s = {rank: pub.rank, woeid: pub.woeid }; 
     self.port.emit("write-to-pref", s);
   };
@@ -51,8 +56,8 @@ function cityElement() {
   /***************************************
   * Create the html to output
   ***************************************/
-  pub.outputElement = function(inEdit) {
-
+  pub.outputElement = function(inEdit) 
+  {
     // Create a table and set its classname appropriately
     // based on whether it is the highest ranking city or not
     // and also enforce no border and give it a body and row
