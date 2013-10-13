@@ -233,58 +233,58 @@ var cityManager = (function () {
     ***************************************/
     function returnImage(conditionCode) 
     {
-      var imageLink = '';
+      //var imageLink = '';
+//
+//      if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
+//	  {
+//	    imageLink = "thunder.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["41","42","43","46","18","16","15","14","13","5","6","7"]) != -1)
+//	  {
+//	    imageLink = "snow.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["8","9","10","11","12","35","40"]) != -1)
+//	  {
+//	    imageLink = "rain.png";
+//	  }
+//	  else if (conditionCode == "17")
+//	  {
+//		imageLink = "hail.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["19","20","21","22","23"]) != -1)
+//	  {
+//		imageLink = "fog.png";
+//	  }
+//	  else if (conditionCode == "24")
+//	  {
+//		imageLink = "wind.png";
+//	  }
+//	  else if (conditionCode == "25")
+//	  {
+//		imageLink = "cold.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["26","27","28","29","30","44"]) != -1)
+//	  {
+//		imageLink = "cloud.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["33","34"]) != -1)
+//	  {
+//		imageLink = "fair.png";
+//	  }
+//	  else if ($.inArray(conditionCode,["32","36"]) != -1)
+//	  {
+//		imageLink = "sun.png";
+//	  }
+//	  else if (conditionCode == "31")
+//	  {
+//		imageLink = "clear.png";
+//	  }
+//	  else
+//	  {
+//	    imageLink = "na.png";
+//	  }
 
-      if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
-	  {
-	    imageLink = "thunder.png";
-	  }
-	  else if ($.inArray(conditionCode,["41","42","43","46","18","16","15","14","13","5","6","7"]) != -1)
-	  {
-	    imageLink = "snow.png";
-	  }
-	  else if ($.inArray(conditionCode,["8","9","10","11","12","35","40"]) != -1)
-	  {
-	    imageLink = "rain.png";
-	  }
-	  else if (conditionCode == "17")
-	  {
-		imageLink = "hail.png";
-	  }
-	  else if ($.inArray(conditionCode,["19","20","21","22","23"]) != -1)
-	  {
-		imageLink = "fog.png";
-	  }
-	  else if (conditionCode == "24")
-	  {
-		imageLink = "wind.png";
-	  }
-	  else if (conditionCode == "25")
-	  {
-		imageLink = "cold.png";
-	  }
-	  else if ($.inArray(conditionCode,["26","27","28","29","30","44"]) != -1)
-	  {
-		imageLink = "cloud.png";
-	  }
-	  else if ($.inArray(conditionCode,["33","34"]) != -1)
-	  {
-		imageLink = "fair.png";
-	  }
-	  else if ($.inArray(conditionCode,["32","36"]) != -1)
-	  {
-		imageLink = "sun.png";
-	  }
-	  else if (conditionCode == "31")
-	  {
-		imageLink = "clear.png";
-	  }
-	  else
-	  {
-	    imageLink = "na.png";
-	  }
-
-      return imageLink;
+      return ""+conditionCode+".png";
     };
 
     /******************************************
