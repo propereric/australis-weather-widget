@@ -1,6 +1,239 @@
-/*********************************************
-* City Manager
-*********************************************/
+//var cityManager = Class.create()
+//{
+//	//Array of city elements
+//	this.cityList = new Array(),
+//	
+//	this.cityContainer = document.getElementById("city-container"),
+//    this.cityInput = document.getElementById("city-input"),
+//    this.invisibleElements = document.getElementsByClassName("invisible"),
+//    this.addCityBar = document.getElementById("addcity"),
+//	this.customizeButton = document.getElementById("customize-text"),
+//    this.addCityButton = document.getElementById("add-city-button"),
+//    
+//	//this.customizeButton.submit({self: this}, this.onToggleEditView); 
+//    //this.addCityButton.submit({self: this}, this.onAddCity);
+//
+//	onAddCity: function () {
+//	
+//	  alert('gsajkdksd');
+//	
+//	  // check if blank to handle at least some validation before we 
+//      // send a request, can't so more because could be # or latin characters
+//      if(this.cityInput.value != "") 
+//      {
+//        self.port.emit("retrieve-woeid", this.cityInput.value);
+//      }
+//	},
+//	
+//	onCreateCity: function (text) {
+//	  if(this.cityList.length < 5) 
+//      {
+//        //create and add it to the list
+//        this.cityList[this.cityList.length] = new cityElement();
+//        this.cityList[this.cityList.length-1].rank = this.cityList.length-1;
+//        this.cityList[this.cityList.length-1].name = "Loading...";
+//        this.cityList[this.cityList.length-1].woeid = text;
+//      
+//        //temporary until forecast is returned, just so user can see it is working
+//        this.cityContainer.appendChild(this.cityList[this.cityList.length-1].outputElement(1));
+//        
+//        //get weather forecast
+//        this.onUpdateWeather();
+//      }
+//	},
+//	
+//	onToggleEditView: function (event) {
+//	  if(this.customizeButton.innerHTML == "Customize")  {
+//        this.customizeButton.innerHTML = "Exit Customization";
+//        this.addCityBar.style.display = '';
+//      }
+//      else  {
+//        this.customizeButton.innerHTML = "Customize";
+//        this.addCityBar.style.display = "none";
+//      }
+//
+//      this.outputCityElements();
+//	},
+//	
+//	onUpdateWeather: function () {
+//	  for(i=0;i<this.cityList.length;i++)
+//      {
+//        this.cityList[i].updateWeather();
+//      }
+//	},
+//	
+//	onForecastToCity: function (onReceive) {
+//	  // get the woeid from the parameter
+//	  var wOEID = onReceive.woeid;
+//	  
+//	  // get xml and tags from xml
+//	  var xml = onReceive.text,
+//	  xmlDoc = $.parseXML( xml ),
+//	  $xml = $( xmlDoc ),
+//	  $location = $xml.find( "yweather\\:location" );
+//	  $wind = $xml.find( "yweather\\:wind" );
+//	  $atmosphere = $xml.find( "yweather\\:atmosphere" );
+//	  $condition = $xml.find( "yweather\\:condition" );
+//	
+//	  // get specific attributes from xml
+//	  var city = $location.attr('city');
+//	  var country = $location.attr('country');
+//	  var region = $location.attr('region');
+//	  var windSpeed = $wind.attr('speed');
+//	  var humidity = $atmosphere.attr('humidity');
+//	  var temp = $condition.attr('temp');
+//	  var visibility = $atmosphere.attr('visibility');
+//	  var conditionCode = $condition.attr('code');
+//	
+//	  // for the city in Citylist with the given WOEID
+//	  // set its attributes to that which has been returned
+//	  for(i=0;i<this.cityList.length;i++)
+//      {
+//        if(this.cityList[i].woeid == wOEID)
+//        {
+//          if(region != ""){ this.cityList[i].name = city+", "+region+", "+country;}
+//          else if(country != "") { this.cityList[i].name = city+", "+country;}
+//          else { this.cityList[i].name = city;}
+//          this.cityList[i].temp = temp;
+//          this.cityList[i].humidity = humidity;
+//          this.cityList[i].vis = visibility;
+//          this.cityList[i].windSpeed = windSpeed;
+//          this.cityList[i].image = this.returnImage(conditionCode);
+//        }
+//      }
+//	
+//	  // refresh the display
+//      this.outputCityElements();
+//	},
+//	
+//	onPrefLoad: function (object) {
+//	  // if city element does not already exists for corresponding pref
+//      // create one, else update existing
+//      if(this.cityList.length >= object.rank+1)
+//      {
+//        for(i=0;i<this.cityList.length;i++)
+//        {
+//          if(this.cityList[i].rank == object.rank)
+//          {
+//             this.cityList[i].woeid = object.woeid;
+//             this.cityList[i].name = "Loading...";
+//             this.onUpdateWeather();
+//          }
+//        }
+//      }
+//      else
+//      {
+//        this.onCreateCity(object.woeid);
+//      }
+//
+//      // refresh the display
+//      this.outputCityElements();
+//	},
+//	
+//	onPromptPrefWrite: function () {
+//	
+//	},
+//	
+//	promoteToCurrentCity: function (woeid) {
+//	  var temp;
+//
+//      // switch the positions of the current city 
+//      // and corresponding rank attributes
+//      for(i=0;i<this.cityList.length;i++)
+//      {
+//        if(this.cityList[i].woeid == woeid)
+//        {
+//          temp = this.cityList[i];
+//          var rank = this.cityList[i].rank;
+//
+//          this.cityList[i] = this.cityList[0];
+//          this.cityList[i].rank = rank;
+//
+//          this.cityList[0] = temp;
+//          this.cityList[0].rank = 0;
+//        }
+//      }
+//
+//      this.outputCityElements();
+//	},
+//	
+//	removeCity: function (woeid) {
+//	  var rank = 0;
+//      var index = 0;
+//
+//      // find the rank and index of the city to be deleted
+//      for(i=0;i<this.cityList.length;i++)
+//      {
+//        if(this.cityList[i].woeid == woeid)
+//        {
+//          rank = this.cityList[i].rank;
+//          index = i;
+//        }
+//      }
+//
+//      // remove the city element needed to be deleted
+//      this.cityList.splice(index,1);
+//
+//      // fix any problems with ranks, for instance if there is a rank 4 but rank 3
+//      // is deleted rank 4 should become rank 3
+//      for(i=0;i<this.cityList.length;i++)
+//      {
+//        if(this.cityList[i].rank > rank)
+//        {
+//          this.cityList[i].rank = this.cityList[i].rank - 1;
+//        }
+//      }
+//
+//      this.outputCityElements();
+//	},
+//	
+//	returnImage: function (conditionCode) {
+//	  return ""+conditionCode+".png";
+//	},
+//	
+//	clearCityContainer: function () {
+//	  //clear the city container of all elements
+//      this.cityContainer.innerHTML='';
+//	},
+//	
+//	outputCityElements: function () {
+//	  this.clearCityContainer();
+//
+//      for(i=0;i<5;i++)
+//      {
+//        var s = {rank: i, woeid: '' };
+//        self.port.emit("write-to-pref", s);
+//      }
+//
+//      // output all city elements with a flag to indicate whether in an 
+//      // edit phase or not
+//      for(i=0;i<this.cityList.length;i++)
+//      {
+//		this.cityList[i].addPrefEntry();
+//
+//        if(this.customizeButton.innerHTML == "Exit Customization") 
+//        {
+//          this.cityContainer.appendChild(this.cityList[i].outputElement(1));
+//        }
+//        else 
+//        {
+//          this.cityContainer.appendChild(this.cityList[i].outputElement(0));
+//        }
+//      }
+//	}
+//}
+
+
+
+
+
+
+
+
+//
+///*********************************************
+//* City Manager
+//*********************************************/
 var cityManager = (function () {
 
     var cityContainer = document.getElementById("city-container");
@@ -234,8 +467,8 @@ var cityManager = (function () {
     function returnImage(conditionCode) 
     {
       //var imageLink = '';
-//
-//      if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
+
+      //if ($.inArray(conditionCode,["3","4","37","38","39","45","47"]) != -1)
 //	  {
 //	    imageLink = "thunder.png";
 //	  }
@@ -328,9 +561,6 @@ var cityManager = (function () {
 
     return pub;
 }());
-
-
-
 
 
 /****************
