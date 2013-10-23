@@ -2,10 +2,8 @@
   "name": "weather",
   "fullName": "weather",
   "id": "jid1-u8H8ugCRGtPryA",
-  "description": "a basic add-on",
+  "description": "An addon for keeping track of the weather",
   "author": "",
   "license": "MPL 2.0",
   "version": "0.1"
-
-  
 }
