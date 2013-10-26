@@ -1,18 +1,18 @@
-<box xmlns:html="http://www.w3.org/1999/xhtml" height="500" >
-  <vbox id="msu-vbox">
-    <html:body>
-      <html:div id="holder">
-        <html:div id="city-container"></html:div>
-        <html:div id="addcity" style="padding-bottom: 0px; text-align: left; margin: 10px; display: none; width: 190px;">
-          <html:input id="city-input" type="text" style="margin: 0px; width: 130px; height: 20px; border-radius: 3px;"></html:input>
-          <html:button onclick="return false;" id="add-city-button" style="margin: 0px; color: white; font-size: 15px; height: 24px; border-radius: 13px; background: green; width: 25px;" type="button">+</html:button>
-        </html:div>
-        <html:div id="toggle-customize-button" style="width: 100%;border: none;background-color: #dfdfdf;border-top: 1px solid #bfbfbf;text-align: center;position: fixed;left: 0;bottom: 0;-moz-user-select: none; height: 37px; padding: 10px;">
-          <html:img width="15" src="gear.png"/>
-          <html:br></html:br>
-          <html:button id="customize-text" style="font-size: 11px; border: none; background: none;" type="button" >Customize</html:button>
-        </html:div>
-      </html:div>
-    </html:body>
+<box xmlns:html="http://www.w3.org/1999/xhtml" height="500" style="overflow: scroll; background-color: purple">
+  <vbox id="msu-vbox" style="margin: 10px;">
+    <box id="holder">
+      <vbox id="city-container">
+
+      </vbox>
+    </box>
+
+    <box id="addcity"  style="display: none; margin-top: 5px;">
+      <textbox id="city-input" style="width: 150px;" placeholder="Enter City/Zip"></textbox>
+      <button id="add-city-button" style="border: 1px solid gray">Add City</button>
+    </box>
+    <box id="toggle-customize-button" style="margin-top: 5px;">
+      <image src="gear.png"/>
+      <button style="border: 1px solid gray"><label style="font-size: 11px;" id="customize-text" value="Customize"/></button>
+    </box>
   </vbox>
 </box>
