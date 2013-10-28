@@ -1,0 +1,8 @@
+<vbox>
+    <label value="A simple XUL widget example" />
+    <button id="msu-foo-btn-counter" label="Click Me" />
+    <hbox>
+        <label value="Number of Clicks: " />
+        <label id="msu-foo-lbl-count" value="0" />
+    </hbox>
+</vbox>
