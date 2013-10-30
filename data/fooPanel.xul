@@ -1,16 +1,16 @@
 <?xml-stylesheet href="style.css" type="text/css"?>
 
 <vbox height="400" width="200">
-  <box style="text-align: center; width: 100%; margin:0px; padding: 0px; background-color: #ededed; height: 20px; border-bottom: 1px solid #bfbfbf;">
-      <box id="toggle-customize-button" style="margin: 0px; padding: 0px; "><label style="font-size: 11px; margin: 5px;" id="customize-text" value="Customize"></label></box>
-  </box>
+  <hbox style="text-align: center; width: 100%; margin:0px; padding: 0px; background-color: #ededed; height: 20px; border-bottom: 1px solid #bfbfbf;">
+      <box id="toggle-customize-button" style="margin: 0px; padding: 0px; width: 200px"><label style="font-size: 11px; margin: 5px;" id="customize-text" value="Customize"></label></box>
+  </hbox>
   <vbox id="msu-vbox" style="margin: 2px;">
     <box id="addcity"  style="display: none; margin-top: 5px; margin-bottom: 5px; text-align: center;">
       <textbox id="city-input" style="width: 150px; margin: 0px; border: 1px solid #bfbfbf;" placeholder="Enter City/Zip"></textbox>
       <box id="add-city-button" style="width: 50px; border: 1px solid #bfbfbf; margin: 0px; background-color: green; color: white;">Add City</box>
     </box>
     <vbox id="holder">
-      <vbox id="city-container" width="200px;">
+      <vbox xmlns:html="http://www.w3.org/1999/xhtml" id="city-container" width="200px;">
 
       </vbox>
     </vbox>
