@@ -1,10 +1,9 @@
 {
-  "name": "xul-injector",
-  "fullName": "xul-injector-fullname",
-  "id": "jid1-zXLg9TEemfKKhw",
+  "name": "test-widget",
+  "fullName": "test-widget",
+  "id": "jid1-ahoQUEjmds0TqQ",
   "description": "a basic add-on",
   "author": "",
   "license": "MPL 2.0",
-  "version": "0.1",
-  "unpack": true
+  "version": "0.1"
 }
