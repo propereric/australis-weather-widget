@@ -1,0 +1,49 @@
+#msu-customize-button {
+    margin-bottom: 10px; 
+    box-shadow: 0px 3px 8px #888888; 
+    background-color: gray; 
+    color: white
+}
+
+#msu-add-city-button {
+    color: white; 
+    background-color: gray; 
+    border-radius: 7px;
+}
+
+.msu-primary-element {
+    text-align: center; 
+	border-radius: 5px;
+	border: 1px solid white;
+	background-color:#C6E2aF; 
+	margin-top: 5px; 
+	margin-bottom: 15px; 
+	box-shadow: 0px 2px 8px #888888; 
+	width: 200px
+}
+
+.msu-secondary-element {
+	text-align: center; 
+	margin-bottom: 15px; 
+	border: 1px solid gray; 
+	background-color: white; 
+	border-radius: 5px; 
+	box-shadow: 0px 2px 8px #888888; 
+	width: 200px
+}
+
+.msu-city-label {
+	font-weight: bold;
+}
+
+.msu-city-image {
+	border: 1px solid gray;
+}
+
+.msu-large-icon {
+	border: solid 1px gray;
+}
+
+.msu-small-icon {
+	border: none;
+}
