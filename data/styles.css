@@ -15,6 +15,20 @@
 	overflow: scroll
 }
 
+.toolbarbutton-badge[badge]:not([badge=""]) {
+    color: black;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.toolbarbutton-badge[badge]:not([badge=""])::after {
+    color: #fff;
+    background-color: #009ACD;
+    border: 2px solid #009ACD;
+    border-radius: 3px;
+}
+
 .msu-primary-element {
     text-align: center; 
 	border-radius: 5px;
