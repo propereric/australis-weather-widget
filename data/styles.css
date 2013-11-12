@@ -1,14 +1,17 @@
 #msu-customize-button {
     margin-bottom: 10px; 
-    box-shadow: 0px 3px 8px #888888; 
+    box-shadow: 0px 3px 6px #888888; 
     background-color: gray; 
-    color: white
+    color: white;
+    border: 1px solid gray;
 }
 
 #msu-add-city-button {
     color: white; 
     background-color: gray; 
-    border-radius: 7px;
+    /*border-radius: 7px;*/
+    box-shadow: 0px 3px 6px #888888;
+    border: 1px solid gray;
 }
 
 #PanelUI-msu-weather {
@@ -31,13 +34,14 @@
 
 .msu-primary-element {
     text-align: center; 
-	border-radius: 5px;
-	border: 1px solid white;
-	background-color:#C6E2aF; 
+	/*border-radius: 5px;*/
+	border: 1px solid gray;
+	background-color: #ceeeb9; 
 	margin-top: 5px; 
 	margin-bottom: 15px; 
-	box-shadow: 0px 2px 8px #888888; 
-	width: 200px
+	box-shadow: 0px 2px 6px #888888; 
+	width: 200px;
+	font-weight: bold;
 }
 
 .msu-secondary-element {
@@ -45,17 +49,20 @@
 	margin-bottom: 15px; 
 	border: 1px solid gray; 
 	background-color: white; 
-	border-radius: 5px; 
-	box-shadow: 0px 2px 8px #888888; 
+	/*border-radius: 5px;*/ 
+	box-shadow: 0px 2px 6px #888888; 
 	width: 200px;
+    font-weight: bold;
 }
 
 .msu-city-label {
 	font-weight: bold;
+	color: black;
 }
 
 .msu-city-image {
-	border: 1px solid gray;
+	border: 1px solid white;
+	outline: 1px solid gray;
 }
 
 .msu-large-icon {
