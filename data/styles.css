@@ -72,18 +72,20 @@
 }
 
 #msu-weather-badge:not([badge=""]) {
-    color: black;
+    color: white;
     background: none;
     border: none;
     box-shadow: none;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #msu-weather-badge:not([badge=""])::after {
-    color: black;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 1px;
+    color: white;
+    background: none;
+    position: relative;
+    top: 8px;
+    right: 3px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .msu-city-element {
