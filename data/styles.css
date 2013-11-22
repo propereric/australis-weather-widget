@@ -2,6 +2,12 @@
     
 }
 
+#msu-toggle-container {
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
 .msu-toggle-button {
     background:-moz-linear-gradient(40% 60% 90deg, #999999, #CCCCCC 50%);
     color: white;
@@ -33,10 +39,13 @@
     box-shadow: none;
 }
 
+.text-link:hover {
+    text-decoration: none;
+}
 
 #customizebuttonholder {
     border-bottom: 1px solid #d7d7d7;
-    margin: 3px;
+    margin-bottom: 5px;
 }
 
 #customizebuttonholder:hover {
@@ -92,7 +101,7 @@
     text-align: center; 
 	border: 1px solid gray; 
 	margin-top: 5px; 
-	margin-bottom: 15px; 
+	margin-bottom: 10px; 
 	box-shadow: 0px 2px 6px #888888; 
 	width: 200px;
 	font-weight: bold;
@@ -109,11 +118,16 @@
 
 .msu-city-label {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	margin: 0px;
+	margin: 0px 0px 0px 5px;
 }
 
 .msu-city-label-holder {
-    margin: 5px 0px 0px 5px;
+    margin: 5px 0px 0px 0px;
+    opacity: 1;
+}
+
+.msu-city-label-holder:hover {
+    opacity: 1;
 }
 
 .msu-city-temp { 
