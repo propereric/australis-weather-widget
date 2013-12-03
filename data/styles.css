@@ -46,6 +46,8 @@
     border-bottom: 1px solid #d7d7d7;
     margin-bottom: 5px;
     margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
 }
 
 #msu-weather-customize-button-holder:hover {
@@ -53,6 +55,8 @@
     background:-moz-linear-gradient(40% 70% 90deg, #DDDDDD, #F7F7F7 50%);
     border-radius: 5px;
     margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #msu-weather-add-city-button {
